@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+                    
+    "target": "es5",                         
+    "module": "commonjs",                          
+    "allowJs": true,                            
+    "checkJs": true,                           
+    "jsx": "preserve",                           
+    "declaration": true,                         
+    "declarationMap": true,                      
+    // "sourceMap": true,                        
+    // "outFile": "./",                         
+    // "outDir": "./",                          
+    "rootDir": "./",                            
+    "composite": true,                         
+    "tsBuildInfoFile": "./",                    
+    // "removeComments": true,                     
+    "noEmit": true,                           
+    // "importHelpers": true,                      
+    "downlevelIteration": true,                 
+    // "isolatedModules": true,                     
+
+    /* Strict Type-Checking Options */
+    "strict": true,                          
+    /* Module Resolution Options */
+    "moduleResolution": "node",                 
+    "esModuleInterop": true,                        
+    "skipLibCheck": true,                           /* Skip type checking of declaration files. */
+    "forceConsistentCasingInFileNames": true        /* Disallow inconsistently-cased references to the same file. */
+  },
+  "include": ["src","script"]
+}
