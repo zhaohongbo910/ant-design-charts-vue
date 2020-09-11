@@ -1,46 +1,54 @@
-import * as g2plot from "@antv/g2plot";
-import path from "path";
-import { existsSync, mkdirSync, promises } from "fs";
-import { ESLint } from "eslint";
-import decamelize from "decamelize";
-import { getCompTemplate, exportPlotComponetsToIndex, getTestContent } from './temp'
-import eslintConfig from "../.eslintrc.js";
+import * as g2plot from '@antv/g2plot'
+import path from 'path'
+import { existsSync, mkdirSync, promises } from 'fs'
+import { ESLint } from 'eslint'
+import decamelize from 'decamelize'
+import {
+  getCompTemplate,
+  exportPlotComponetsToIndex,
+  getTestContent,
+} from './temp'
+import eslintConfig from '../.eslintrc.js'
 
-const pwd = process.cwd();
-const plotDir = path.resolve(pwd, "src/plots");
-const exportPath = path.resolve(pwd, "src/index.ts");
-const testDir = path.resolve(pwd, "_tests/plots");
+const pwd = process.cwd()
+const plotDir = path.resolve(pwd, 'src/plots')
+const exportPath = path.resolve(pwd, 'src/index.ts')
+const testDir = path.resolve(pwd, '_tests/plots')
 
-const g2ChartsList: string[] = [];
+const g2ChartsList: string[] = []
 
 function existsDir() {
+  // eslint-disable-next-line prettier/prettier
   [plotDir, testDir].forEach((dir) => {
     if (!existsSync(dir)) {
-      mkdirSync(dir, { recursive: true });
+      mkdirSync(dir, { recursive: true })
     }
-  });
+  })
 }
 
 function getPlotComponents() {
-  const { Plot } = g2plot;
+  const { Plot } = g2plot
   Object.entries(g2plot).forEach(async ([chartName, module]: [string, any]) => {
     try {
-      if (module.prototype instanceof Plot && chartName !== "P") {
-        let filePath = path.resolve(plotDir, `${decamelize(chartName, { separator: '-' })}/index.tsx`)
+      if (module.prototype instanceof Plot && chartName !== 'P') {
+        const filePath = path.resolve(
+          plotDir,
+          `${decamelize(chartName, { separator: '-' })}/index.tsx`
+        )
         if (!existsSync(filePath)) {
-          g2ChartsList.push(chartName);
+          g2ChartsList.push(chartName)
         }
       }
     } catch (error) {
-      console.log("🚀 ~ file:error", error);
+      console.log('🚀 ~ file:error', error)
     }
-  });
+  })
 }
 
 function getChartConfig(chart: string) {
   return {
     componetName: `${chart}Chart`,
-    componetPath: decamelize(chart, { separator: '-' })
+    componetPath: decamelize(chart, { separator: '-' }),
   }
 }
 
@@ -48,7 +56,7 @@ async function eslintFixFileContent(fileContent: string, filePath: string) {
   const lintResult = await new ESLint({
     extensions: ['.tsx'],
     baseConfig: eslintConfig as any,
-    fix: true
+    fix: true,
   }).lintText(fileContent, { filePath })
   const { output } = lintResult[0]
   return output || ''
@@ -70,11 +78,13 @@ async function createComponents() {
 }
 
 async function addExportIndex() {
-  let exportFileContent = await promises.readFile(exportPath, { encoding: 'utf8', })
+  let exportFileContent = await promises.readFile(exportPath, {
+    encoding: 'utf8',
+  })
   g2ChartsList.forEach((chart) => {
     const { componetPath, componetName } = getChartConfig(chart)
     const importPath = `./plots/${componetPath}`
-    const content = exportPlotComponetsToIndex(componetName)
+    const content = exportPlotComponetsToIndex(componetName, importPath)
     exportFileContent += content
   })
 
@@ -92,10 +102,9 @@ async function createTestCases() {
   })
   await Promise.all(promisesTest)
 }
-
-
+// eslint-disable-next-line prettier/prettier
 (async () => {
-  existsDir();
+  existsDir()
   getPlotComponents()
   await createComponents()
   await addExportIndex()

@@ -66,10 +66,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: [
-        '**/_tests_/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)',
-      ],
+      files: ['**/_tests_/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)'],
       env: {
         jest: true,
       },

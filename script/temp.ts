@@ -24,7 +24,7 @@ export function getCompTemplate(chart: string) {
 }
 
 
-export function exportPlotComponetsToIndex(chartName) {
+export function exportPlotComponetsToIndex(chartName,path) {
     return `
     \nimport { ${chartName}Props as _${chartName}Props } from '${importPath}'
       export { default as ${chartName} } from '${importPath}'
