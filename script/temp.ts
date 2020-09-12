@@ -1,14 +1,15 @@
 export function getCompTemplate(chart: string) {
-    return `
-    import { defineComponent } from 'vue'
+  return `
+    import { defineComponent,App } from 'vue'
     import { ${chart}, ${chart}Options } from '@antv/g2plot'
-    import G2PlotChart, { G2PlotChartProps } from '../../components/Base'
+    import G2PlotChart, { G2PlotChartProps } from '../../Base'
+
     import { Writeable } from '../../types'
 
     export type ${chart}ChartProps = Writeable<Omit<G2PlotChartProps<${chart}Options>, 'chart'> &
       ${chart}Options>
 
-    const ${chart}Chart = defineComponent<${chart}G2PlotChartProps>({
+    const ${chart}Chart = defineComponent<${chart}ChartProps>({
       name: '${chart}Chart',
       setup(props, ctx) {
         return () => <G2PlotChart chart={${chart}} {...ctx.attrs} {...props} />
@@ -20,23 +21,24 @@ export function getCompTemplate(chart: string) {
     }
 
     export default ${chart}Chart
-    `
+    `;
 }
 
-
-export function exportPlotComponetsToIndex(chartName,path) {
-    return `
+export function exportPlotComponetsToIndex(
+  chartName: string,
+  importPath: string
+) {
+  return `
     \nimport { ${chartName}Props as _${chartName}Props } from '${importPath}'
       export { default as ${chartName} } from '${importPath}'
       export type ${chartName}Props = _${chartName}Props
-    `
+    `;
 }
 
-
-export function getTestContent(chart, cmpPath) {
-    return `
+export function getTestContent(chart: string, cmpPath: string) {
+  return `
     import { mount } from '@vue/test-utils'
-    import ${chart}Chart from '../../src/plots/${cmpPath}'
+    import ${chart}Chart from '../../src/components/${cmpPath}'
     
     const config = {
       data: [],
@@ -49,6 +51,5 @@ export function getTestContent(chart, cmpPath) {
         mount(() => <${chart}Chart {...config} />)
       })
     })
-    `
+    `;
 }
-
