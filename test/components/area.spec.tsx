@@ -1,17 +1,13 @@
 import { mount } from "@vue/test-utils";
-import AreaChart from "../../src/components/area";
+import AreaPlot from "../../src/components/area";
 
 const config = {
-  data: [{
-    a:1,
-    b:1,
-  }],
+  data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("AreaChart", () => {
+describe("AreaPlot", () => {
   test("should render without crashed", () => {
-    mount(() => <AreaChart {...config} />);
+    mount(() => <AreaPlot {...config} />);
   });
 });

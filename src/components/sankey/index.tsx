@@ -1,22 +1,21 @@
 import { defineComponent, App } from "vue";
 import { Sankey, SankeyOptions } from "@antv/g2plot";
 import G2PlotChart, { G2PlotChartProps } from "../../Base";
-
 import { Writeable } from "../../types";
 
-export type SankeyChartProps = Writeable<
+export type SankeyPlotProps = Writeable<
   Omit<G2PlotChartProps<SankeyOptions>, "chart"> & SankeyOptions
 >;
 
-const SankeyChart = defineComponent<SankeyChartProps>({
-  name: "SankeyChart",
+const SankeyPlot = defineComponent<SankeyPlotProps>({
+  name: "SankeyPlot",
   setup(props, ctx) {
     return () => <G2PlotChart chart={Sankey} {...ctx.attrs} {...props} />;
   },
 });
 
-SankeyChart.install = (app: App) => {
-  app.component(SankeyChart.name, SankeyChart);
+SankeyPlot.install = (app: App) => {
+  app.component(SankeyPlot.name, SankeyPlot);
 };
 
-export default SankeyChart;
+export default SankeyPlot;

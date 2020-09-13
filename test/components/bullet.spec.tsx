@@ -1,18 +1,13 @@
 import { mount } from "@vue/test-utils";
-import BulletChart from "../../src/components/bullet";
+import BulletPlot from "../../src/components/bullet";
 
 const config = {
-  data: [{
-    title: '满意度',
-    ranges: [100],
-    measures: [80],
-    target: 85,
-  }],
-  xField: "title",
+  data: [],
+  xField: "a",
+  yField: "b",
 };
-
-describe("BulletChart", () => {
+describe("BulletPlot", () => {
   test("should render without crashed", () => {
-    mount(() => <BulletChart {...config} />);
+    mount(() => <BulletPlot {...config} />);
   });
 });

@@ -1,14 +1,13 @@
 import { mount } from "@vue/test-utils";
-import SankeyChart from "../../src/components/sankey";
+import SankeyPlot from "../../src/components/sankey";
 
 const config = {
   data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("SankeyChart", () => {
+describe("SankeyPlot", () => {
   test("should render without crashed", () => {
-    mount(() => <SankeyChart {...config} />);
+    mount(() => <SankeyPlot {...config} />);
   });
 });

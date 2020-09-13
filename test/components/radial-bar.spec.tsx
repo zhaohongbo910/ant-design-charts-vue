@@ -1,14 +1,13 @@
 import { mount } from "@vue/test-utils";
-import RadialBarChart from "../../src/components/radial-bar";
+import RadialBarPlot from "../../src/components/radial-bar";
 
 const config = {
   data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("RadialBarChart", () => {
+describe("RadialBarPlot", () => {
   test("should render without crashed", () => {
-    mount(() => <RadialBarChart {...config} />);
+    mount(() => <RadialBarPlot {...config} />);
   });
 });

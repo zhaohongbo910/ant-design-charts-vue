@@ -1,14 +1,13 @@
 import { mount } from "@vue/test-utils";
-import LineChart from "../../src/components/line";
+import LinePlot from "../../src/components/line";
 
 const config = {
   data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("LineChart", () => {
+describe("LinePlot", () => {
   test("should render without crashed", () => {
-    mount(() => <LineChart {...config} />);
+    mount(() => <LinePlot {...config} />);
   });
 });

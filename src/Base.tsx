@@ -24,7 +24,7 @@ interface ChartOptions {
   config: any;
 }
 
-export interface G2PlotChartRawBindings<C extends Options> {
+export interface G2PlotRawBindings<C extends Options> {
   plot: G2Plot<C>;
   config: C;
   data: any[];
@@ -33,7 +33,7 @@ export interface G2PlotChartRawBindings<C extends Options> {
 
 const G2PlotChart = defineComponent<
   G2PlotChartProps<any>,
-  G2PlotChartRawBindings<any>
+  G2PlotRawBindings<any>
 >({
   inheritAttrs: false,
   name: "G2PlotChart",

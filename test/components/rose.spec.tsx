@@ -1,14 +1,13 @@
 import { mount } from "@vue/test-utils";
-import RoseChart from "../../src/components/rose";
+import RosePlot from "../../src/components/rose";
 
 const config = {
   data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("RoseChart", () => {
+describe("RosePlot", () => {
   test("should render without crashed", () => {
-    mount(() => <RoseChart {...config} />);
+    mount(() => <RosePlot {...config} />);
   });
 });

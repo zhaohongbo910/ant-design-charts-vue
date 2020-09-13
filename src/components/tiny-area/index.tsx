@@ -1,22 +1,21 @@
 import { defineComponent, App } from "vue";
 import { TinyArea, TinyAreaOptions } from "@antv/g2plot";
 import G2PlotChart, { G2PlotChartProps } from "../../Base";
-
 import { Writeable } from "../../types";
 
-export type TinyAreaChartProps = Writeable<
+export type TinyAreaPlotProps = Writeable<
   Omit<G2PlotChartProps<TinyAreaOptions>, "chart"> & TinyAreaOptions
 >;
 
-const TinyAreaChart = defineComponent<TinyAreaChartProps>({
-  name: "TinyAreaChart",
+const TinyAreaPlot = defineComponent<TinyAreaPlotProps>({
+  name: "TinyAreaPlot",
   setup(props, ctx) {
     return () => <G2PlotChart chart={TinyArea} {...ctx.attrs} {...props} />;
   },
 });
 
-TinyAreaChart.install = (app: App) => {
-  app.component(TinyAreaChart.name, TinyAreaChart);
+TinyAreaPlot.install = (app: App) => {
+  app.component(TinyAreaPlot.name, TinyAreaPlot);
 };
 
-export default TinyAreaChart;
+export default TinyAreaPlot;

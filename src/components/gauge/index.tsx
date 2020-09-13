@@ -1,22 +1,21 @@
 import { defineComponent, App } from "vue";
 import { Gauge, GaugeOptions } from "@antv/g2plot";
 import G2PlotChart, { G2PlotChartProps } from "../../Base";
-
 import { Writeable } from "../../types";
 
-export type GaugeChartProps = Writeable<
+export type GaugePlotProps = Writeable<
   Omit<G2PlotChartProps<GaugeOptions>, "chart"> & GaugeOptions
 >;
 
-const GaugeChart = defineComponent<GaugeChartProps>({
-  name: "GaugeChart",
+const GaugePlot = defineComponent<GaugePlotProps>({
+  name: "GaugePlot",
   setup(props, ctx) {
     return () => <G2PlotChart chart={Gauge} {...ctx.attrs} {...props} />;
   },
 });
 
-GaugeChart.install = (app: App) => {
-  app.component(GaugeChart.name, GaugeChart);
+GaugePlot.install = (app: App) => {
+  app.component(GaugePlot.name, GaugePlot);
 };
 
-export default GaugeChart;
+export default GaugePlot;

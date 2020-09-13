@@ -1,14 +1,13 @@
 import { mount } from "@vue/test-utils";
-import TinyColumnChart from "../../src/components/tiny-column";
+import TinyColumnPlot from "../../src/components/tiny-column";
 
 const config = {
   data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("TinyColumnChart", () => {
+describe("TinyColumnPlot", () => {
   test("should render without crashed", () => {
-    mount(() => <TinyColumnChart {...config} />);
+    mount(() => <TinyColumnPlot {...config} />);
   });
 });

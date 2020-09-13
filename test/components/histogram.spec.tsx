@@ -1,17 +1,13 @@
 import { mount } from "@vue/test-utils";
-import HistogramChart from "../../src/components/histogram";
+import HistogramPlot from "../../src/components/histogram";
 
 const config = {
-  data: [{
-    a:1,
-    b:1,
-  }],
+  data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("HistogramChart", () => {
+describe("HistogramPlot", () => {
   test("should render without crashed", () => {
-    mount(() => <HistogramChart {...config} />);
+    mount(() => <HistogramPlot {...config} />);
   });
 });

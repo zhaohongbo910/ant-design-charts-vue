@@ -1,14 +1,13 @@
 import { mount } from "@vue/test-utils";
-import ProgressChart from "../../src/components/progress";
+import ProgressPlot from "../../src/components/progress";
 
 const config = {
   data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("ProgressChart", () => {
+describe("ProgressPlot", () => {
   test("should render without crashed", () => {
-    mount(() => <ProgressChart {...config} />);
+    mount(() => <ProgressPlot {...config} />);
   });
 });

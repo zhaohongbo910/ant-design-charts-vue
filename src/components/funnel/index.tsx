@@ -1,22 +1,21 @@
 import { defineComponent, App } from "vue";
 import { Funnel, FunnelOptions } from "@antv/g2plot";
 import G2PlotChart, { G2PlotChartProps } from "../../Base";
-
 import { Writeable } from "../../types";
 
-export type FunnelChartProps = Writeable<
+export type FunnelPlotProps = Writeable<
   Omit<G2PlotChartProps<FunnelOptions>, "chart"> & FunnelOptions
 >;
 
-const FunnelChart = defineComponent<FunnelChartProps>({
-  name: "FunnelChart",
+const FunnelPlot = defineComponent<FunnelPlotProps>({
+  name: "FunnelPlot",
   setup(props, ctx) {
     return () => <G2PlotChart chart={Funnel} {...ctx.attrs} {...props} />;
   },
 });
 
-FunnelChart.install = (app: App) => {
-  app.component(FunnelChart.name, FunnelChart);
+FunnelPlot.install = (app: App) => {
+  app.component(FunnelPlot.name, FunnelPlot);
 };
 
-export default FunnelChart;
+export default FunnelPlot;

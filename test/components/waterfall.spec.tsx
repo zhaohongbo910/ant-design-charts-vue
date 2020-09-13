@@ -1,14 +1,13 @@
 import { mount } from "@vue/test-utils";
-import WaterfallChart from "../../src/components/waterfall";
+import WaterfallPlot from "../../src/components/waterfall";
 
 const config = {
   data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("WaterfallChart", () => {
+describe("WaterfallPlot", () => {
   test("should render without crashed", () => {
-    mount(() => <WaterfallChart {...config} />);
+    mount(() => <WaterfallPlot {...config} />);
   });
 });

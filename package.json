@@ -42,6 +42,9 @@
       "prettier --write"
     ]
   },
+  "publishConfig":{
+    
+  },
   "author": "zhaohongbo910",
   "license": "MIT",
   "dependencies": {

@@ -1,14 +1,13 @@
 import { mount } from "@vue/test-utils";
-import StockChart from "../../src/components/stock";
+import StockPlot from "../../src/components/stock";
 
 const config = {
   data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("StockChart", () => {
+describe("StockPlot", () => {
   test("should render without crashed", () => {
-    mount(() => <StockChart {...config} />);
+    mount(() => <StockPlot {...config} />);
   });
 });

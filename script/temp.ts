@@ -1,26 +1,25 @@
-export function getCompTemplate(chart: string) {
+export function getCompTemplate(chartName: string) {
   return `
     import { defineComponent,App } from 'vue'
-    import { ${chart}, ${chart}Options } from '@antv/g2plot'
+    import { ${chartName}, ${chartName}Options } from '@antv/g2plot'
     import G2PlotChart, { G2PlotChartProps } from '../../Base'
-
     import { Writeable } from '../../types'
 
-    export type ${chart}ChartProps = Writeable<Omit<G2PlotChartProps<${chart}Options>, 'chart'> &
-      ${chart}Options>
+    export type ${chartName}PlotProps = Writeable<Omit<G2PlotChartProps<${chartName}Options>, 'chart'> &
+      ${chartName}Options>
 
-    const ${chart}Chart = defineComponent<${chart}ChartProps>({
-      name: '${chart}Chart',
+    const ${chartName}Plot = defineComponent<${chartName}PlotProps>({
+      name: '${chartName}Plot',
       setup(props, ctx) {
-        return () => <G2PlotChart chart={${chart}} {...ctx.attrs} {...props} />
+        return () => <G2PlotChart chart={${chartName}} {...ctx.attrs} {...props} />
       },
     })
 
-    ${chart}Chart.install = (app: App) => {
-      app.component(${chart}Chart.name, ${chart}Chart)
+    ${chartName}Plot.install = (app: App) => {
+      app.component(${chartName}Plot.name, ${chartName}Plot)
     }
 
-    export default ${chart}Chart
+    export default ${chartName}Plot
     `;
 }
 
@@ -35,20 +34,19 @@ export function exportPlotComponetsToIndex(
     `;
 }
 
-export function getTestContent(chart: string, cmpPath: string) {
+export function getTestContent(chartName: string, cmpPath: string) {
   return `
     import { mount } from '@vue/test-utils'
-    import ${chart}Chart from '../../src/components/${cmpPath}'
+    import ${chartName}Plot from '../../src/components/${cmpPath}'
     
     const config = {
       data: [],
       xField: 'a',
       yField: 'b',
-    }
-    
-    describe('${chart}Chart', () => {
+    } 
+    describe('${chartName}Plot', () => {
       test('should render without crashed', () => {
-        mount(() => <${chart}Chart {...config} />)
+        mount(() => <${chartName}Plot {...config} />)
       })
     })
     `;

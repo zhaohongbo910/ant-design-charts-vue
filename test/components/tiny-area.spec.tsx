@@ -1,14 +1,13 @@
 import { mount } from "@vue/test-utils";
-import TinyAreaChart from "../../src/components/tiny-area";
+import TinyAreaPlot from "../../src/components/tiny-area";
 
 const config = {
   data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("TinyAreaChart", () => {
+describe("TinyAreaPlot", () => {
   test("should render without crashed", () => {
-    mount(() => <TinyAreaChart {...config} />);
+    mount(() => <TinyAreaPlot {...config} />);
   });
 });

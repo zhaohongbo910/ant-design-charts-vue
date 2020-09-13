@@ -1,14 +1,13 @@
 import { mount } from "@vue/test-utils";
-import RadarChart from "../../src/components/radar";
+import RadarPlot from "../../src/components/radar";
 
 const config = {
   data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("RadarChart", () => {
+describe("RadarPlot", () => {
   test("should render without crashed", () => {
-    mount(() => <RadarChart {...config} />);
+    mount(() => <RadarPlot {...config} />);
   });
 });

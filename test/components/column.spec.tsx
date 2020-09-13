@@ -1,14 +1,13 @@
 import { mount } from "@vue/test-utils";
-import ColumnChart from "../../src/components/column";
+import ColumnPlot from "../../src/components/column";
 
 const config = {
   data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("ColumnChart", () => {
+describe("ColumnPlot", () => {
   test("should render without crashed", () => {
-    mount(() => <ColumnChart {...config} />);
+    mount(() => <ColumnPlot {...config} />);
   });
 });

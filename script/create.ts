@@ -47,7 +47,7 @@ function getPlotComponents() {
 
 function getChartConfig(chart: string) {
   return {
-    componetName: `${chart}Chart`,
+    componetName: `${chart}Plot`,
     componetPath: decamelize(chart, { separator: "-" }),
   };
 }

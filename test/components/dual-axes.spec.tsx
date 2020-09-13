@@ -1,14 +1,13 @@
 import { mount } from "@vue/test-utils";
-import DualAxesChart from "../../src/components/dual-axes";
+import DualAxesPlot from "../../src/components/dual-axes";
 
 const config = {
   data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("DualAxesChart", () => {
+describe("DualAxesPlot", () => {
   test("should render without crashed", () => {
-    mount(() => <DualAxesChart {...config} />);
+    mount(() => <DualAxesPlot {...config} />);
   });
 });

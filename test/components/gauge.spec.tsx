@@ -1,14 +1,13 @@
 import { mount } from "@vue/test-utils";
-import GaugeChart from "../../src/components/gauge";
+import GaugePlot from "../../src/components/gauge";
 
 const config = {
   data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("GaugeChart", () => {
+describe("GaugePlot", () => {
   test("should render without crashed", () => {
-    mount(() => <GaugeChart {...config} />);
+    mount(() => <GaugePlot {...config} />);
   });
 });

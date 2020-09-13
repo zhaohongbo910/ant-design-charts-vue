@@ -1,14 +1,13 @@
 import { mount } from "@vue/test-utils";
-import TreemapChart from "../../src/components/treemap";
+import TreemapPlot from "../../src/components/treemap";
 
 const config = {
   data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("TreemapChart", () => {
+describe("TreemapPlot", () => {
   test("should render without crashed", () => {
-    mount(() => <TreemapChart {...config} />);
+    mount(() => <TreemapPlot {...config} />);
   });
 });

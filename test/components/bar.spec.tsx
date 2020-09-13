@@ -1,14 +1,13 @@
 import { mount } from "@vue/test-utils";
-import BarChart from "../../src/components/bar";
+import BarPlot from "../../src/components/bar";
 
 const config = {
   data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("BarChart", () => {
+describe("BarPlot", () => {
   test("should render without crashed", () => {
-    mount(() => <BarChart {...config} />);
+    mount(() => <BarPlot {...config} />);
   });
 });

@@ -1,22 +1,21 @@
 import { defineComponent, App } from "vue";
 import { MultiView, MultiViewOptions } from "@antv/g2plot";
 import G2PlotChart, { G2PlotChartProps } from "../../Base";
-
 import { Writeable } from "../../types";
 
-export type MultiViewChartProps = Writeable<
+export type MultiViewPlotProps = Writeable<
   Omit<G2PlotChartProps<MultiViewOptions>, "chart"> & MultiViewOptions
 >;
 
-const MultiViewChart = defineComponent<MultiViewChartProps>({
-  name: "MultiViewChart",
+const MultiViewPlot = defineComponent<MultiViewPlotProps>({
+  name: "MultiViewPlot",
   setup(props, ctx) {
     return () => <G2PlotChart chart={MultiView} {...ctx.attrs} {...props} />;
   },
 });
 
-MultiViewChart.install = (app: App) => {
-  app.component(MultiViewChart.name, MultiViewChart);
+MultiViewPlot.install = (app: App) => {
+  app.component(MultiViewPlot.name, MultiViewPlot);
 };
 
-export default MultiViewChart;
+export default MultiViewPlot;

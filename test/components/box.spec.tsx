@@ -1,14 +1,13 @@
 import { mount } from "@vue/test-utils";
-import BoxChart from "../../src/components/box";
+import BoxPlot from "../../src/components/box";
 
 const config = {
   data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("BoxChart", () => {
+describe("BoxPlot", () => {
   test("should render without crashed", () => {
-    mount(() => <BoxChart {...config} />);
+    mount(() => <BoxPlot {...config} />);
   });
 });

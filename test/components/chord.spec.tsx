@@ -1,14 +1,13 @@
 import { mount } from "@vue/test-utils";
-import ChordChart from "../../src/components/chord";
+import ChordPlot from "../../src/components/chord";
 
 const config = {
   data: [],
   xField: "a",
   yField: "b",
 };
-
-describe("ChordChart", () => {
+describe("ChordPlot", () => {
   test("should render without crashed", () => {
-    mount(() => <ChordChart {...config} />);
+    mount(() => <ChordPlot {...config} />);
   });
 });
