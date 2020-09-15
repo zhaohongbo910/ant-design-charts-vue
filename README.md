@@ -1,12 +1,13 @@
-# @ant-desigin/charts-vue
+# ant-design-charts-vue
 
 > A Vue3 chart library, based on [G2Plot](https://g2plot.antv.vision/)
 
-
 ## Install
 
-```
-npm install @ant-desigin/charts-vue
+```js
+
+npm install ant-design-charts-vue
+
 ```
 
 ## Usage
@@ -45,11 +46,9 @@ const config: LinePlotProps = {
 
 export default defineComponent(() => {
   const chartRef = ref(null)
-  return () => <LineChart {...config} chartRef={chartRef} />
+  return () => <LinePlot {...config} chartRef={chartRef} />
 })
 ```
-
-
 <!-- 
 ## DEMO
 

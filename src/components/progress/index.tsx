@@ -1,16 +1,16 @@
 import { defineComponent, App } from "vue";
 import { Progress, ProgressOptions } from "@antv/g2plot";
-import G2PlotChart, { G2PlotChartProps } from "../../Base";
+import VG2Plot, { G2PlotProps } from "../../Base";
 import { Writeable } from "../../types";
 
 export type ProgressPlotProps = Writeable<
-  Omit<G2PlotChartProps<ProgressOptions>, "chart"> & ProgressOptions
+  Omit<G2PlotProps<ProgressOptions>, "chart"> & ProgressOptions
 >;
 
 const ProgressPlot = defineComponent<ProgressPlotProps>({
   name: "ProgressPlot",
   setup(props, ctx) {
-    return () => <G2PlotChart chart={Progress} {...ctx.attrs} {...props} />;
+    return () => <VG2Plot chart={Progress} {...ctx.attrs} {...props} />;
   },
 });
 

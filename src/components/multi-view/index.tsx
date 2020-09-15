@@ -1,16 +1,16 @@
 import { defineComponent, App } from "vue";
 import { MultiView, MultiViewOptions } from "@antv/g2plot";
-import G2PlotChart, { G2PlotChartProps } from "../../Base";
+import VG2Plot, { G2PlotProps } from "../../Base";
 import { Writeable } from "../../types";
 
 export type MultiViewPlotProps = Writeable<
-  Omit<G2PlotChartProps<MultiViewOptions>, "chart"> & MultiViewOptions
+  Omit<G2PlotProps<MultiViewOptions>, "chart"> & MultiViewOptions
 >;
 
 const MultiViewPlot = defineComponent<MultiViewPlotProps>({
   name: "MultiViewPlot",
   setup(props, ctx) {
-    return () => <G2PlotChart chart={MultiView} {...ctx.attrs} {...props} />;
+    return () => <VG2Plot chart={MultiView} {...ctx.attrs} {...props} />;
   },
 });
 

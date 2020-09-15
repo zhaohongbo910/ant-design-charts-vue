@@ -1,9 +1,10 @@
 {
-  "name": "@ant-desigin/charts-vue",
+  "name": "ant-design-charts-vue",
   "version": "1.0.0",
-  "description": "ant design charts vue3",
+  "description": "A ant design charts vue3",
   "main": "lib/index.js",
   "module": "es/index.js",
+  "private": false,
   "files": [
     "lib",
     "es",
@@ -20,7 +21,8 @@
     "url": "https://github.com/zhaohongbo910/ant-design-charts-vue.git"
   },
   "keywords": [
-    "ant-desigin",
+    "ant",
+    "desigin",
     "g2plot",
     "g2",
     "vue3",
@@ -42,10 +44,8 @@
       "prettier --write"
     ]
   },
-  "publishConfig":{
-    
-  },
-  "author": "zhaohongbo910",
+  "publishConfig": {},
+  "author": "zhaohongbo",
   "license": "MIT",
   "dependencies": {
     "@antv/g2plot": "^2.3.15",
@@ -78,6 +78,7 @@
     "standard": "^16.0.3",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.3",
+    "vite": "^2.0.5",
     "vue": "^3.0.7"
   },
   "devDependencies": {

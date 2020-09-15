@@ -1,16 +1,16 @@
 import { defineComponent, App } from "vue";
 import { Pie, PieOptions } from "@antv/g2plot";
-import G2PlotChart, { G2PlotChartProps } from "../../Base";
+import VG2Plot, { G2PlotProps } from "../../Base";
 import { Writeable } from "../../types";
 
 export type PiePlotProps = Writeable<
-  Omit<G2PlotChartProps<PieOptions>, "chart"> & PieOptions
+  Omit<G2PlotProps<PieOptions>, "chart"> & PieOptions
 >;
 
 const PiePlot = defineComponent<PiePlotProps>({
   name: "PiePlot",
   setup(props, ctx) {
-    return () => <G2PlotChart chart={Pie} {...ctx.attrs} {...props} />;
+    return () => <VG2Plot chart={Pie} {...ctx.attrs} {...props} />;
   },
 });
 

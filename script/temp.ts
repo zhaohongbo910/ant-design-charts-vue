@@ -2,16 +2,16 @@ export function getCompTemplate(chartName: string) {
   return `
     import { defineComponent,App } from 'vue'
     import { ${chartName}, ${chartName}Options } from '@antv/g2plot'
-    import G2PlotChart, { G2PlotChartProps } from '../../Base'
+    import G2Plot, { G2PlotProps } from '../../Base'
     import { Writeable } from '../../types'
 
-    export type ${chartName}PlotProps = Writeable<Omit<G2PlotChartProps<${chartName}Options>, 'chart'> &
+    export type ${chartName}PlotProps = Writeable<Omit<G2PlotProps<${chartName}Options>, 'chart'> &
       ${chartName}Options>
 
     const ${chartName}Plot = defineComponent<${chartName}PlotProps>({
       name: '${chartName}Plot',
       setup(props, ctx) {
-        return () => <G2PlotChart chart={${chartName}} {...ctx.attrs} {...props} />
+        return () => <G2Plot chart={${chartName}} {...ctx.attrs} {...props} />
       },
     })
 

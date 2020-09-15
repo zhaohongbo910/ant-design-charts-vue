@@ -1,16 +1,16 @@
 import { defineComponent, App } from "vue";
 import { Rose, RoseOptions } from "@antv/g2plot";
-import G2PlotChart, { G2PlotChartProps } from "../../Base";
+import VG2Plot, { G2PlotProps } from "../../Base";
 import { Writeable } from "../../types";
 
 export type RosePlotProps = Writeable<
-  Omit<G2PlotChartProps<RoseOptions>, "chart"> & RoseOptions
+  Omit<G2PlotProps<RoseOptions>, "chart"> & RoseOptions
 >;
 
 const RosePlot = defineComponent<RosePlotProps>({
   name: "RosePlot",
   setup(props, ctx) {
-    return () => <G2PlotChart chart={Rose} {...ctx.attrs} {...props} />;
+    return () => <VG2Plot chart={Rose} {...ctx.attrs} {...props} />;
   },
 });
 

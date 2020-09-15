@@ -6,3 +6,5 @@ lib2/
 es3/
 lib3/
 *.d.ts
+index.ts
+index.js

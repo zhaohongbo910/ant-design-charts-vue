@@ -1,16 +1,16 @@
 import { defineComponent, App } from "vue";
 import { RingProgress, RingProgressOptions } from "@antv/g2plot";
-import G2PlotChart, { G2PlotChartProps } from "../../Base";
+import VG2Plot, { G2PlotProps } from "../../Base";
 import { Writeable } from "../../types";
 
 export type RingProgressPlotProps = Writeable<
-  Omit<G2PlotChartProps<RingProgressOptions>, "chart"> & RingProgressOptions
+  Omit<G2PlotProps<RingProgressOptions>, "chart"> & RingProgressOptions
 >;
 
 const RingProgressPlot = defineComponent<RingProgressPlotProps>({
   name: "RingProgressPlot",
   setup(props, ctx) {
-    return () => <G2PlotChart chart={RingProgress} {...ctx.attrs} {...props} />;
+    return () => <VG2Plot chart={RingProgress} {...ctx.attrs} {...props} />;
   },
 });
 

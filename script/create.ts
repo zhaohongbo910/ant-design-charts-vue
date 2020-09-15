@@ -31,13 +31,7 @@ function getPlotComponents() {
   Object.entries(g2plot).forEach(async ([chartName, module]: [string, any]) => {
     try {
       if (module.prototype instanceof Plot && chartName !== "P") {
-        // const filePath = path.resolve(
-        //   plotDir,
-        //   `${decamelize(chartName, { separator: '-' })}/index.tsx`
-        // )
-        // if (!existsSync(filePath)) {
         g2ChartsList.push(chartName);
-        // }
       }
     } catch (error) {
       console.log("🚀 ~ file:error", error);
@@ -58,8 +52,8 @@ async function eslintFixFileContent(fileContent: string, filePath: string) {
     baseConfig: eslintConfig as any,
     fix: true,
   }).lintText(fileContent, { filePath });
-  const code = lintResult[0].output || "";
-  return code;
+  const { output } = lintResult[0];
+  return output || "";
 }
 
 async function createComponents() {

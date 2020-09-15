@@ -1,16 +1,16 @@
 import { defineComponent, App } from "vue";
 import { Column, ColumnOptions } from "@antv/g2plot";
-import G2PlotChart, { G2PlotChartProps } from "../../Base";
+import VG2Plot, { G2PlotProps } from "../../Base";
 import { Writeable } from "../../types";
 
 export type ColumnPlotProps = Writeable<
-  Omit<G2PlotChartProps<ColumnOptions>, "chart"> & ColumnOptions
+  Omit<G2PlotProps<ColumnOptions>, "chart"> & ColumnOptions
 >;
 
 const ColumnPlot = defineComponent<ColumnPlotProps>({
   name: "ColumnPlot",
   setup(props, ctx) {
-    return () => <G2PlotChart chart={Column} {...ctx.attrs} {...props} />;
+    return () => <VG2Plot chart={Column} {...ctx.attrs} {...props} />;
   },
 });
 

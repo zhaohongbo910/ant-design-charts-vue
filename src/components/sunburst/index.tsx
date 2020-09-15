@@ -1,16 +1,16 @@
 import { defineComponent, App } from "vue";
 import { Sunburst, SunburstOptions } from "@antv/g2plot";
-import G2PlotChart, { G2PlotChartProps } from "../../Base";
+import VG2Plot, { G2PlotProps } from "../../Base";
 import { Writeable } from "../../types";
 
 export type SunburstPlotProps = Writeable<
-  Omit<G2PlotChartProps<SunburstOptions>, "chart"> & SunburstOptions
+  Omit<G2PlotProps<SunburstOptions>, "chart"> & SunburstOptions
 >;
 
 const SunburstPlot = defineComponent<SunburstPlotProps>({
   name: "SunburstPlot",
   setup(props, ctx) {
-    return () => <G2PlotChart chart={Sunburst} {...ctx.attrs} {...props} />;
+    return () => <VG2Plot chart={Sunburst} {...ctx.attrs} {...props} />;
   },
 });
 

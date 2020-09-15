@@ -1,16 +1,15 @@
 import { defineComponent, App } from "vue";
 import { Area, AreaOptions } from "@antv/g2plot";
-import G2PlotChart, { G2PlotChartProps } from "../../Base";
+import VG2Plot, { G2PlotProps } from "../../Base";
 import { Writeable } from "../../types";
 
 export type AreaPlotProps = Writeable<
-  Omit<G2PlotChartProps<AreaOptions>, "chart"> & AreaOptions
->;
+  Omit<G2PlotProps<AreaOptions>, "chart"> & AreaOptions>;
 
 const AreaPlot = defineComponent<AreaPlotProps>({
   name: "AreaPlot",
   setup(props, ctx) {
-    return () => <G2PlotChart chart={Area} {...ctx.attrs} {...props} />;
+    return () => <VG2Plot chart={Area} {...ctx.attrs} {...props} />;
   },
 });
 
