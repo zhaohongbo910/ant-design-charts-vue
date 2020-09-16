@@ -1,6 +1,6 @@
 {
   "name": "ant-design-charts-vue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A ant design charts vue3",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -34,10 +34,10 @@
     "cre": "node ./script/create.js",
     "lib": "npx babel ./src -d lib --extensions .ts,.tsx --delete-dir-on-start",
     "lib.ts": "npx tsc --declarationDir ./lib",
-    "es": "npx babel ./src -d es --extensions .ts,.tsx --delete-dir-on-start" ,
+    "es": "npx babel ./src -d es --extensions .ts,.tsx --delete-dir-on-start",
     "es.ts": "npx tsc --declarationDir ./es",
     "build:es": "run-s es es.ts lint",
-    "build:lib":"run-s lib lib.ts lint"
+    "build:lib": "run-s lib lib.ts lint"
   },
   "lint-staged": {
     "*.{vue,js,jsx,ts,tsx}": [
