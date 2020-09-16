@@ -1,21 +1,21 @@
-import { defineComponent, App } from "vue";
-import { Rose, RoseOptions } from "@antv/g2plot";
-import VG2Plot, { G2PlotProps } from "../../Base";
-import { Writeable } from "../../types";
+// 玫瑰图
+import { defineComponent,App } from 'vue'
+import { Rose, RoseOptions } from '@antv/g2plot'
+import G2Plot, { G2PlotProps } from '../../Base'
+import { Writeable } from '../../types'
 
-export type RosePlotProps = Writeable<
-  Omit<G2PlotProps<RoseOptions>, "chart"> & RoseOptions
->;
+export type RosePlotProps = Writeable<Omit<G2PlotProps<RoseOptions>, 'chart'> &
+    RoseOptions>
 
 const RosePlot = defineComponent<RosePlotProps>({
-  name: "RosePlot",
-  setup(props, ctx) {
-    return () => <VG2Plot chart={Rose} {...ctx.attrs} {...props} />;
-  },
-});
+    name: 'RosePlot',
+    setup(props, ctx) {
+    return () => <G2Plot chart={Rose} {...ctx.attrs} {...props} />
+    },
+})
 
 RosePlot.install = (app: App) => {
-  app.component(RosePlot.name, RosePlot);
-};
+    app.component(RosePlot.name, RosePlot)
+}
 
-export default RosePlot;
+export default RosePlot

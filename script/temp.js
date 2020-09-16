@@ -28,8 +28,8 @@ export function exportPlotComponetsToIndex(
   importPath: string
 ) {
   return `
-    \nimport { ${chartName}Props as _${chartName}Props } from '${importPath}'
-      export { default as ${chartName} } from '${importPath}'
+    import { ${chartName}Props as _${chartName}Props } from '${importPath}'
+      export { default as ${chartName}Plot } from '${importPath}'
       export type ${chartName}Props = _${chartName}Props
     `;
 }

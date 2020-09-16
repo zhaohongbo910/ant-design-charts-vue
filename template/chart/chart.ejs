@@ -1,0 +1,21 @@
+// <%= name %>
+import { defineComponent,App } from 'vue'
+import { <%= chartName %>, <%= chartName %>Options } from '@antv/g2plot'
+import G2Plot, { G2PlotProps } from '../../Base'
+import { Writeable } from '../../types'
+
+export type <%= chartName %>PlotProps = Writeable<Omit<G2PlotProps<<%= chartName %>Options>, 'chart'> &
+    <%= chartName %>Options>
+
+const <%= chartName %>Plot = defineComponent<<%= chartName %>PlotProps>({
+    name: '<%= chartName %>Plot',
+    setup(props, ctx) {
+    return () => <G2Plot chart={<%= chartName %>} {...ctx.attrs} {...props} />
+    },
+})
+
+<%= chartName %>Plot.install = (app: App) => {
+    app.component(<%= chartName %>Plot.name, <%= chartName %>Plot)
+}
+
+export default <%= chartName %>Plot
