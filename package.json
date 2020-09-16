@@ -33,10 +33,11 @@
     "lint": "npx eslint . --ext=.ts,.tsx,.js --fix",
     "cre": "node ./script/create.js",
     "lib": "npx babel ./src -d lib --extensions .ts,.tsx --delete-dir-on-start",
-    "lib.d.ts": "npx tsc --declarationDir ./lib",
-    "es": "npx babel ./src -d es --extensions .ts,.tsx --delete-dir-on-start",
-    "es.d.ts": "npx tsc --declarationDir ./es",
-    "build:es": "run-s es es.d.ts lint"
+    "lib.ts": "npx tsc --declarationDir ./lib",
+    "es": "npx babel ./src -d es --extensions .ts,.tsx --delete-dir-on-start" ,
+    "es.ts": "npx tsc --declarationDir ./es",
+    "build:es": "run-s es es.ts lint",
+    "build:lib":"run-s lib lib.ts lint"
   },
   "lint-staged": {
     "*.{vue,js,jsx,ts,tsx}": [

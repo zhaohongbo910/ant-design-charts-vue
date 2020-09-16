@@ -30,11 +30,16 @@ module.exports = {
     // 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/477)
     "no-undef": "off",
     "no-empty": "off",
+    "no-useless-escape":"off",
+    "no-useless-call":'off',
     "prettier/prettier": "off",
-    // "camelcase":'off',
     "eslint@typescript-eslint/no-var-requires": "off",
-    "@typescript-eslint/no-var-requires": "off",
+  
     "node/handle-callback-err": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/ban-types":'off',
+    "@typescript-eslint/no-explicit-any":'off'
+   
    
     // Add TypeScript specific rules (and turn off ESLint equivalents)
     // "@typescript-eslint/consistent-type-assertions": "warn",
